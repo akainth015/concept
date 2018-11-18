@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <base target="_top">
+        <link rel="stylesheet" href="https://ssl.gstatic.com/docs/script/css/add-ons1.css">
+        <style>
+            body {
+                padding: 10px;
+            }
+
+            table {
+                width: 100%;
+            }
+
+            .hidden {
+                display: none;
+            }
+
+            #document-update {
+                background-color: darkorange;
+                color: white;
+                font-weight: bold;
+                padding: 10px;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Concept</h1>
+        <p id="status">Initializing</p>
+        <div class="hidden" id="document-update">
+            <p>The document has been updated since analysis was last run.</p>
+            <button class="action" onClick="google.script.run.showSidebar()">Rerun</button>
+        </div>
+        <div id="analysis-container" class="hidden">
+            <h2 id="score-tag"></h2>
+            <h2 id="objectivity">Objective</h2>
+            <p id="objectivity-desc"></p>
+            <h2 id="coherence">Coherent</h2>
+            <p id="coherence-desc"></p>
+            <div id="coherence-action-items"></div>
+            <h2 id="irony">Unironic</h2>
+            <p id="irony-desc"></p>
+            <h2>Most Relevant Concepts</h2>
+            <canvas id="concept-graph"></canvas>
+            <button id="concepts-button" onclick="toggleConceptsVisibility()">Show all</button>
+            <ul class="hidden" id="concepts"></ul>
+            <h2>Powerful Phrases</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Effect</th>
+                        <th>Phrase</th>
+                    </tr>
+                </thead>
+                <tbody id="power-phrases">
+
+                </tbody>
+            </table>
+        </div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
+        <script>
+            function createElement(name, props) {
+                return Object.assign(document.createElement(name), props);
+            }
+
+            // noinspection SpellCheckingInspection
+            const descriptions = {
+                AGREEMENT: "Your sentences do not conflict with each other in terms of their statement, and in terms of connotative meaning.",
+                DISAGREEMENT: "Your sentences conflict with each other's meaning or connotation. Try fixing the sentences below",
+                IRONIC: "Your document contains traces of irony",
+                NONIRONIC: "Your document contains no traces of irony",
+                OBJECTIVE: "Your writing does not contain bias, or personal opinion, and can be scientifically verified.",
+                SUBJECTIVE: "Your document contains bias, or personal opinions, and cannot be scientifically verified"
+            };
+        </script>
+        <script>
+            const apiKey = "9b66c6767700433df9846a7fb38547f6";
+            const endpoints = {
+                sentiment_analysis: "https://api.meaningcloud.com/sentiment-2.1",
+                topics: "https://api.meaningcloud.com/topics-2.0"
+            };
+            const scoreTagToEnglish = {
+                "P+": "+",
+                "N+": "-"
+            };
+            const scoreTagToEmoji = {
+                "P+": "\u{1F603}",
+                "P": "\u{1F642}",
+                "NEU": "\u{1F610}",
+                "N": "\u{1F641}",
+                "N+": "\u{1F621}",
+                "NONE": "\u{1F62E}"
+            };
+
+            const analysisContainer = document.getElementById("analysis-container");
+            const coherence = document.getElementById("coherence");
+            const coherenceActionItems = document.getElementById("coherence-action-items");
+            const coherenceDesc = document.getElementById("coherence-desc");
+            const concepts = document.getElementById("concepts");
+            const conceptsButton = document.getElementById("concepts-button");
+            const documentUpdate = document.getElementById("document-update");
+            const irony = document.getElementById("irony");
+            const ironyDesc = document.getElementById("irony-desc");
+            const objectivity = document.getElementById("objectivity");
+            const objectivityDesc = document.getElementById("objectivity-desc");
+            const powerPhrases = document.getElementById("power-phrases");
+            const scoreTag = document.getElementById("score-tag");
+            const status = document.getElementById("status");
+
+            let documentContentOnLastUpdate;
+
+            async function getInfoFromEndpoint(endpoint, parameters) {
+                return new Promise((resolve, reject) => {
+                    const xhr = new XMLHttpRequest();
+                    // noinspection JSUnusedLocalSymbols
+                    xhr.addEventListener("readystatechange", e => {
+                        if (xhr.readyState === xhr.DONE) {
+                            resolve(JSON.parse(xhr.response));
+                        }
+                    });
+                    xhr.addEventListener("error", e => {
+                        reject(e);
+                    });
+
+                    xhr.open("POST", endpoint);
+                    xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
+                    xhr.send(`key=${apiKey}&lang=en${Object.keys(parameters).map(key => `&${key}=${encodeURIComponent(parameters[key])}`).join("")}`);
+                });
+            }
+
+            function hideStatusAndShowAnalysis() {
+                status.textContent = "Done";
+                status.style.display = "none";
+                analysisContainer.style.display = "block";
+            }
+
+            function onSentimentAnalysisComplete(response) {
+                // noinspection JSUnresolvedVariable
+                coherence.textContent = (response.agreement === "AGREEMENT" ? "Coherent" : "Incoherent");
+                // noinspection JSUnresolvedVariable
+                coherenceDesc.textContent = descriptions[response.agreement];
+                // noinspection JSUnresolvedVariable
+                irony.textContent = response.irony === "IRONIC" ? "Ironic" : "Unironic";
+                // noinspection JSUnresolvedVariable
+                ironyDesc.textContent = descriptions[response.irony];
+                // noinspection JSUnresolvedVariable
+                objectivity.textContent = response.subjectivity === "SUBJECTIVE" ? "Subjective" : "Objective";
+                // noinspection JSUnresolvedVariable
+                objectivityDesc.textContent = descriptions[response.subjectivity];
+                // noinspection JSUnresolvedVariable
+                scoreTag.textContent = "Effect on audience: " + scoreTagToEmoji[response.score_tag];
+
+                // noinspection JSUnresolvedVariable
+                response.sentence_list
+                    .filter(sentence => sentence.agreement === "DISAGREEMENT")
+                    .slice(0, 5)
+                    .forEach(sentence => coherenceActionItems.appendChild(createElement("p", {
+                        textContent: sentence.text
+                    })));
+
+                // noinspection JSUnresolvedVariable
+                response.sentimented_concept_list
+                    .filter(concept => ["NONE", "NEU", "P", "N"].indexOf(concept.score_tag) === -1)
+                    .slice(0, 25)
+                    .forEach(concept => {
+                        const row = createElement("tr");
+                        // noinspection JSUnresolvedVariable
+                        row.appendChild(createElement("td", {textContent: scoreTagToEnglish[concept.score_tag]}));
+                        row.appendChild(createElement("td", {textContent: concept.form}));
+                        powerPhrases.appendChild(row);
+                    });
+            }
+
+            // noinspection JSUnresolvedVariable
+            function onTopicsFetched(response) {
+                hideStatusAndShowAnalysis();
+                // noinspection JSUnresolvedVariable
+                const conceptsSortedByRelevance = response.concept_list.sort((a, b) => b.relevance - a.relevance);
+                concepts.childNodes.forEach(childNode => concepts.removeChild(childNode));
+                // noinspection JSUnresolvedVariable
+                response.concept_list
+                    .forEach(concept => concepts.appendChild(createElement("li", {textContent: `${concept.form} [${concept.relevance}]`})));
+                // noinspection JSUnresolvedVariable
+                if (response.concept_list.length === 0) {
+                    concepts.appendChild(Object.assign(createElement("li", {textContent: "No concepts found"})));
+                }
+
+                // noinspection JSUnresolvedVariable
+                new Chart("concept-graph", {
+                    data: {
+                        labels: conceptsSortedByRelevance.slice(0, 5).map(concept => concept.form),
+                        datasets: [{
+                            label: "Key Concepts",
+                            data: conceptsSortedByRelevance.slice(0, 5).map(concept => concept.relevance)
+                        }]
+                    },
+                    options: {
+                        legend: {
+                            display: false
+                        },
+                        scales: {
+                            yAxes: [{
+                                ticks: {
+                                    beginAtZero: true
+                                }
+                            }]
+                        }
+                    },
+                    type: "bar"
+                });
+            }
+
+            function onDocumentContentFetched(documentContent) {
+                documentContentOnLastUpdate = documentContent;
+                status.textContent = "Analyzing";
+                getInfoFromEndpoint(endpoints.topics, {
+                    txt: documentContent,
+                    tt: "a"
+                })
+                    .then(onTopicsFetched)
+                    .catch(console.error);
+                getInfoFromEndpoint(endpoints.sentiment_analysis, {
+                    txt: documentContent
+                })
+                    .then(onSentimentAnalysisComplete)
+                    .catch(console.error);
+            }
+
+            function toggleConceptsVisibility() {
+                if (concepts.style.display === "none") {
+                    conceptsButton.textContent = "Hide all";
+                    concepts.style.display = "block";
+                } else {
+                    conceptsButton.textContent = "Show all";
+                    concepts.style.display = "none";
+                }
+            }
+
+            function onDocumentContentUpdated(content) {
+                if (content !== documentContentOnLastUpdate) {
+                    documentUpdate.style.display = "block";
+                } else {
+                    // noinspection JSUnresolvedVariable, JSUnresolvedFunction
+                    setTimeout(google.script.run.withSuccessHandler(onDocumentContentUpdated).getDocumentContents, 1333);
+                }
+            }
+
+            concepts.style.display = "none";
+
+            status.textContent = "Reading document contents";
+            // noinspection JSUnresolvedVariable, JSUnresolvedFunction
+            google.script.run.withSuccessHandler(onDocumentContentFetched).getDocumentContents();
+            // noinspection JSUnresolvedVariable, JSUnresolvedFunction
+            setTimeout(google.script.run.withSuccessHandler(onDocumentContentUpdated).getDocumentContents, 1333);
+        </script>
+    </body>
+</html>
