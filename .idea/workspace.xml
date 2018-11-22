@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="70ee5be7-c25b-4734-be80-2b2c494fa6f8" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -18,11 +17,14 @@
     <session id="2123677588">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="2" />
+          <entry key="project.closed" value="6" />
           <entry key="project.open.time.0" value="1" />
           <entry key="project.open.time.1" value="1" />
+          <entry key="project.open.time.10" value="1" />
+          <entry key="project.open.time.11" value="1" />
+          <entry key="project.open.time.27" value="1" />
           <entry key="project.open.time.5" value="1" />
-          <entry key="project.opened" value="3" />
+          <entry key="project.opened" value="6" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -45,14 +47,14 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="html" value="14059" />
-          <entry key="txt" value="46" />
+          <entry key="html" value="14081" />
+          <entry key="txt" value="119" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="HTML" value="14059" />
-          <entry key="PLAIN_TEXT" value="46" />
+          <entry key="HTML" value="14081" />
+          <entry key="PLAIN_TEXT" value="119" />
         </counts>
       </usages-collector>
     </session>
@@ -62,7 +64,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/sidebar.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1963">
+            <state relative-caret-position="2091">
               <caret line="123" selection-start-line="123" selection-end-line="123" />
             </state>
           </provider>
@@ -80,11 +82,10 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="639">
-              <caret line="471" column="102" selection-start-line="471" selection-start-column="102" selection-end-line="471" selection-end-column="102" />
+            <state relative-caret-position="9377">
+              <caret line="567" lean-forward="true" selection-start-line="567" selection-end-line="567" />
               <folding>
-                <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#3;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <marker date="1542558644915" expanded="true" signature="26143:26845" ph="..." />
+                <marker date="1542558748369" expanded="true" signature="26233:26935" ph="..." />
               </folding>
             </state>
           </provider>
@@ -93,7 +94,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/css/style.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="299">
+            <state relative-caret-position="1343">
               <caret line="79" column="1" selection-start-line="79" selection-start-column="1" selection-end-line="79" selection-end-column="1" />
             </state>
           </provider>
@@ -136,10 +137,10 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-7" />
-    <option name="y" value="1" />
-    <option name="width" value="1292" />
-    <option name="height" value="765" />
+    <option name="x" value="46" />
+    <option name="y" value="34" />
+    <option name="width" value="1827" />
+    <option name="height" value="967" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -154,6 +155,11 @@
             <path>
               <item name="Concept" type="b2602c69:ProjectViewProjectNode" />
               <item name="Concept" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Concept" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Concept" type="462c0819:PsiDirectoryNode" />
+              <item name="images" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -197,7 +203,10 @@
       <updated>1542484062626</updated>
       <workItem from="1542484063892" duration="18036000" />
       <workItem from="1542511370450" duration="6697000" />
-      <workItem from="1542528167664" duration="17643000" />
+      <workItem from="1542528167664" duration="18587000" />
+      <workItem from="1542807906140" duration="1802000" />
+      <workItem from="1542812012591" duration="196000" />
+      <workItem from="1542870575727" duration="40000" />
     </task>
     <task id="LOCAL-00001" summary="Landing page">
       <created>1542537111912</created>
@@ -213,17 +222,31 @@
       <option name="project" value="LOCAL" />
       <updated>1542558281123</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Added privacy policy for publishing to store">
+      <created>1542558787311</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1542558787311</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Add sidebar.png">
+      <created>1542558845543</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1542558845543</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="42376000" />
+    <option name="totallyTimeSpent" value="45358000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2081138" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2081138" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -236,7 +259,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Terminal" order="9" weight="0.32951653" />
-      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
+      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" weight="0.329718" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -251,15 +274,17 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Landing page" />
     <MESSAGE value="Updated splash page" />
-    <option name="LAST_COMMIT_MESSAGE" value="Updated splash page" />
+    <MESSAGE value="Added privacy policy for publishing to store" />
+    <MESSAGE value="Add sidebar.png" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add sidebar.png" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/concept.png">
-      <provider selected="true" editor-type-id="images" />
+    <entry file="file://$PROJECT_DIR$/prepros-6.config">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/sidebar.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1963">
+        <state relative-caret-position="2091">
           <caret line="123" selection-start-line="123" selection-end-line="123" />
         </state>
       </provider>
@@ -271,23 +296,22 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/prepros-6.config">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/css/style.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="299">
+        <state relative-caret-position="1343">
           <caret line="79" column="1" selection-start-line="79" selection-start-column="1" selection-end-line="79" selection-end-column="1" />
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/concept.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="639">
-          <caret line="471" column="102" selection-start-line="471" selection-start-column="102" selection-end-line="471" selection-end-column="102" />
+        <state relative-caret-position="9377">
+          <caret line="567" lean-forward="true" selection-start-line="567" selection-end-line="567" />
           <folding>
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#3;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <marker date="1542558644915" expanded="true" signature="26143:26845" ph="..." />
+            <marker date="1542558748369" expanded="true" signature="26233:26935" ph="..." />
           </folding>
         </state>
       </provider>
