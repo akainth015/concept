@@ -3,33 +3,14 @@
     <head>
         <base target="_top">
         <link rel="stylesheet" href="https://ssl.gstatic.com/docs/script/css/add-ons1.css">
-        <style>
-            .sidebar {
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                height: 100%;
-            }
-            #loading-indicator {
-                animation: spin 1s ease infinite;
-                width: 128px;
-            }
-
-            @keyframes spin {
-                from {
-                    transform: rotate(0deg);
-                }
-                to {
-                    transform: rotate(360deg);
-                }
-            }
-        </style>
+        <?!= include("Stylesheet"); ?>
         <title>Concept</title>
     </head>
     <body>
-        <div class="sidebar">
+        <div class="sidebar loading">
             <img id="loading-indicator" src="https://concept.akainth.me/assets/concept.png"
                  alt="Loading...">
         </div>
+        <?!= include("Script"); ?>
     </body>
 </html>

@@ -1,0 +1,9 @@
+<script>
+    function onAnnotationComplete(annotations) {
+        console.log(annotations);
+    }
+
+    google.script.run
+        .withSuccessHandler(onAnnotationComplete)
+        .runAnalysis();
+</script>
