@@ -1,0 +1,26 @@
+{
+  "name": "concept",
+  "private": true,
+  "version": "2.0.0",
+  "description": "Perform detailed analysis of your writing",
+  "main": "Concept.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/akainth015/concept.git"
+  },
+  "keywords": [
+    "writing",
+    "analysis",
+    "sentiment"
+  ],
+  "author": "Aanand Kainth",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/akainth015/concept/issues"
+  },
+  "homepage": "https://github.com/akainth015/concept#readme",
+  "dependencies": {
+    "@types/google-apps-script": "^1.0.14"
+  }
+}

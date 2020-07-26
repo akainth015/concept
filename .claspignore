@@ -1,0 +1,5 @@
+node_modules/*
+docs/*
+.clasp.json
+yarn.lock
+package.json
