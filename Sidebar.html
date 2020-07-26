@@ -1,13 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <base target="_top">
-    <link rel="stylesheet" href="https://ssl.gstatic.com/docs/script/css/add-ons1.css">
-    <title>Concept</title>
-  </head>
-  <body>
-    <div class="sidebar">
-      <h1>Concept</h1>
-    </div>
-  </body>
+    <head>
+        <base target="_top">
+        <link rel="stylesheet" href="https://ssl.gstatic.com/docs/script/css/add-ons1.css">
+        <style>
+            .sidebar {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100%;
+            }
+            #loading-indicator {
+                animation: spin 1s ease infinite;
+                width: 128px;
+            }
+
+            @keyframes spin {
+                from {
+                    transform: rotate(0deg);
+                }
+                to {
+                    transform: rotate(360deg);
+                }
+            }
+        </style>
+        <title>Concept</title>
+    </head>
+    <body>
+        <div class="sidebar">
+            <img id="loading-indicator" src="https://concept.akainth.me/assets/concept.png"
+                 alt="Loading...">
+        </div>
+    </body>
 </html>

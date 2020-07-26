@@ -4,20 +4,21 @@
  * Notify the authorization platform that this add-on is scoped to this document
  */
 
+// noinspection JSUnusedGlobalSymbols
 /**
  * Create the "Analyze" menu entry, and bind it to openSidebar
  */
-function onOpen(e) {
+function onOpen() {
     DocumentApp.getUi()
         .createAddonMenu()
-        .addItem("Analyze", 'openSidebar')
+        .addItem("Analyze", 'runAnalysis')
         .addToUi();
 }
 
 /**
  * Show the sidebar to the user (only works with the regular add-on, not the mobile version)
  */
-function openSidebar() {
+function runAnalysis() {
     const sidebar = HtmlService.createHtmlOutputFromFile("Sidebar");
     sidebar.setTitle("Concept");
     DocumentApp.getUi().showSidebar(sidebar);
