@@ -1,9 +1,3 @@
-/**
- * @OnlyCurrentDoc
- *
- * Notify the authorization platform that this add-on is scoped to this document
- */
-
 // noinspection JSUnusedGlobalSymbols
 /**
  * Create the "Analyze" menu entry, and bind it to openSidebar
@@ -19,11 +13,12 @@ function onOpen() {
  * Show the sidebar to the user (only works with the regular add-on, not the mobile version)
  */
 function showSidebar() {
-    const sidebar = HtmlService.createHtmlOutputFromFile("Sidebar");
+    const sidebar = HtmlService.createTemplateFromFile("Sidebar").evaluate();
     sidebar.setTitle("Concept");
     DocumentApp.getUi().showSidebar(sidebar);
 }
 
+// noinspection JSUnusedGlobalSymbols
 /**
  * Used to include CSS and JS separately from HTML
  */
@@ -32,6 +27,12 @@ function include(filename) {
         .getContent();
 }
 
+// TODO test and see if the natural language api is more accurate with individual paragraphs
+function getAllParagraphs() {
+    return DocumentApp.getActiveDocument().getBody().getParagraphs();
+}
+
+// noinspection JSUnusedGlobalSymbols
 function runAnalysis() {
     const payload = {
         document: {
@@ -46,6 +47,7 @@ function runAnalysis() {
             extractEntitySentiment: true,
             classifyText: true,
         },
+        encodingType: "UTF16"
     };
 
     const annotationsResponse = UrlFetchApp.fetch("https://language.googleapis.com/v1/documents:annotateText", {

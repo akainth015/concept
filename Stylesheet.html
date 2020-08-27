@@ -1,5 +1,5 @@
 <style>
-    .sidebar .loading {
+    .sidebar.loading {
         display: flex;
         justify-content: center;
         align-items: center;
@@ -9,6 +9,43 @@
     #loading-indicator {
         animation: spin 1s ease infinite;
         width: 128px;
+    }
+
+    .chart {
+        width: 100%;
+    }
+
+    h1 {
+        line-height: 1.3em;
+    }
+
+    .no-list-style {
+        list-style-type: none;
+    }
+
+    .sign {
+        margin-left: -30px;
+        margin-right: 10px;
+        margin-top: 0px;
+        font-size: 1em;
+        float: left;
+    }
+
+    .sign.positive {
+        color: #50b950;
+    }
+
+    .sign.negative {
+        color: #d0130a;
+    }
+
+    .sign.mixed {
+        color: #ff6c00;
+    }
+
+    .sentiment {
+        font-size: 4rem;
+        text-align: center;
     }
 
     @keyframes spin {

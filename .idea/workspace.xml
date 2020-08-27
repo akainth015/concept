@@ -1,69 +1,83 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="BranchesTreeState">
     <expand>
       <path>
         <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
         <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
       </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
     </expand>
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="99da44be-9e32-4298-be1f-9c6e2ef17bf4" name="Default Changelist" comment="" />
+    <list default="true" id="2e10c0d3-7d1f-476b-9173-be71889fd942" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/concept.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Concept.js" beforeDir="false" afterPath="$PROJECT_DIR$/Concept.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Script.html" beforeDir="false" afterPath="$PROJECT_DIR$/Script.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sidebar.html" beforeDir="false" afterPath="$PROJECT_DIR$/Sidebar.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Stylesheet.html" beforeDir="false" afterPath="$PROJECT_DIR$/Stylesheet.html" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="JavaScript File" />
-        <option value="HTML File" />
-      </list>
-    </option>
-  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectId" id="1fCzbodclfH86qM3lvoZonEZUDB" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectId" id="1fGubTfYC8v6GJv8yNAydMakmqu" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
-    <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="TERMINAL_CUSTOM_COMMANDS_GOT_IT" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
+    <property name="nodejs_package_manager_path" value="yarn" />
   </component>
-  <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/docs" />
-    </key>
-  </component>
-  <component name="SvnConfiguration">
-    <configuration />
-  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="99da44be-9e32-4298-be1f-9c6e2ef17bf4" name="Default Changelist" comment="" />
-      <created>1595736936376</created>
+      <changelist id="2e10c0d3-7d1f-476b-9173-be71889fd942" name="Default Changelist" comment="" />
+      <created>1595856823211</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1595736936376</updated>
-      <workItem from="1595736938574" duration="17748000" />
+      <updated>1595856823211</updated>
+      <workItem from="1595856825257" duration="17000" />
+      <workItem from="1595945378389" duration="10802000" />
+      <workItem from="1596125041635" duration="843000" />
+      <workItem from="1596126546209" duration="3000" />
+      <workItem from="1596153258853" duration="2469000" />
+      <workItem from="1596942193038" duration="2345000" />
+      <workItem from="1596984798859" duration="15359000" />
+      <workItem from="1597636939426" duration="6828000" />
+      <workItem from="1598124552429" duration="12000" />
+      <workItem from="1598125036490" duration="14361000" />
+      <workItem from="1598280231201" duration="48000" />
+      <workItem from="1598281518863" duration="2000" />
+      <workItem from="1598503653039" duration="607000" />
+      <workItem from="1598506146236" duration="546000" />
+      <workItem from="1598506700128" duration="2680000" />
+      <workItem from="1598531071187" duration="533000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="2" />
+    <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -76,23 +90,34 @@
       </map>
     </option>
   </component>
-  <component name="VcsManagerConfiguration">
-    <ignored-roots>
-      <path value="$PROJECT_DIR$/concept" />
-    </ignored-roots>
-  </component>
   <component name="WindowStateProjectService">
-    <state x="684" y="357" width="542" height="400" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1595738483816">
+    <state x="750" y="254" width="419" height="606" key="#JSON" timestamp="1598531603238">
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
-    <state x="684" y="357" width="542" height="400" key="#com.intellij.fileTypes.FileTypeChooser/0.27.1920.1053@0.27.1920.1053" timestamp="1595738483816" />
-    <state x="464" y="188" width="992" height="737" key="SettingsEditor" timestamp="1595738770896">
+    <state x="750" y="254" width="419" height="606" key="#JSON/0.27.1920.1053@0.27.1920.1053" timestamp="1598531603238" />
+    <state x="555" y="197" width="800" height="719" key="#Plugins" timestamp="1598506540746">
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
-    <state x="464" y="188" width="992" height="737" key="SettingsEditor/0.27.1920.1053@0.27.1920.1053" timestamp="1595738770896" />
-    <state x="623" y="261" width="672" height="678" key="search.everywhere.popup" timestamp="1595790081207">
+    <state x="555" y="197" width="800" height="719" key="#Plugins/0.27.1920.1053@0.27.1920.1053" timestamp="1598506540746" />
+    <state x="418" y="211" width="1084" height="709" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1598506842740">
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
-    <state x="623" y="261" width="672" height="678" key="search.everywhere.popup/0.27.1920.1053@0.27.1920.1053" timestamp="1595790081207" />
+    <state x="418" y="211" width="1084" height="709" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.27.1920.1053@0.27.1920.1053" timestamp="1598506842740" />
+    <state x="777" y="267" width="355" height="580" key="RollbackChangesDialog" timestamp="1598531361059">
+      <screen x="0" y="27" width="1920" height="1053" />
+    </state>
+    <state x="777" y="267" width="355" height="580" key="RollbackChangesDialog/0.27.1920.1053@0.27.1920.1053" timestamp="1598531361059" />
+    <state x="802" y="327" width="306" height="459" key="refactoring.ChangeSignatureDialog" timestamp="1595946301818">
+      <screen x="0" y="27" width="1920" height="1053" />
+    </state>
+    <state x="802" y="327" width="306" height="459" key="refactoring.ChangeSignatureDialog/0.27.1920.1053@0.27.1920.1053" timestamp="1595946301818" />
+    <state x="623" y="261" width="672" height="678" key="search.everywhere.popup" timestamp="1598531036250">
+      <screen x="0" y="27" width="1920" height="1053" />
+    </state>
+    <state x="623" y="261" width="672" height="678" key="search.everywhere.popup/0.27.1920.1053@0.27.1920.1053" timestamp="1598531036250" />
+    <state x="685" y="447" width="540" height="220" key="vcs.readOnlyHandler.ReadOnlyStatusDialog" timestamp="1598531543706">
+      <screen x="0" y="27" width="1920" height="1053" />
+    </state>
+    <state x="685" y="447" width="540" height="220" key="vcs.readOnlyHandler.ReadOnlyStatusDialog/0.27.1920.1053@0.27.1920.1053" timestamp="1598531543706" />
   </component>
 </project>
