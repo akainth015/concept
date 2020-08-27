@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+    <!--This was adapted from https://github.com/jantimon/html-webpack-plugin/blob/master/examples/inline/template.pug-->
+    <head>
+        <link rel="stylesheet" href="https://ssl.gstatic.com/docs/script/css/add-ons1.css">
+        <%= htmlWebpackPlugin.files.css.map(function (cssFile) {
+            return `<style>${compilation.assets[cssFile].source()}</style>`;
+        }) %>
+        <title>Concept</title>
+    </head>
+    <body>
+        <div class="sidebar" id="root"></div>
+        <%= htmlWebpackPlugin.files.js.map(function (jsFile) {
+            return `<script>${compilation.assets[jsFile].source()}</script>`;
+        }) %>
+    </body>
+</html>

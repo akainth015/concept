@@ -23,17 +23,30 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2e10c0d3-7d1f-476b-9173-be71889fd942" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/concept.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.claspignore" beforeDir="false" afterPath="$PROJECT_DIR$/.claspignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Concept.js" beforeDir="false" afterPath="$PROJECT_DIR$/Concept.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Script.html" beforeDir="false" afterPath="$PROJECT_DIR$/Script.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sidebar.html" beforeDir="false" afterPath="$PROJECT_DIR$/Sidebar.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Stylesheet.html" beforeDir="false" afterPath="$PROJECT_DIR$/Stylesheet.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sidebar/.babelrc" beforeDir="false" afterPath="$PROJECT_DIR$/.babelrc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sidebar/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sidebar/src/index.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sidebar/src/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sidebar/webpack.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/webpack.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sidebar/yarn.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+        <option value="package.json" />
+        <option value="HTML File" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -44,10 +57,37 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="javascript.nodejs.core.library.configured.version" value="12.18.2" />
+    <property name="javascript.nodejs.core.library.typings.version" value="12.12.54" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_interpreter_path" value="$USER_HOME$/.nvm/versions/node/v12.18.2/bin/node" />
     <property name="nodejs_package_manager_path" value="yarn" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/sidebar/src" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="start" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="start" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="npm.start" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -73,6 +113,7 @@
       <workItem from="1598506146236" duration="546000" />
       <workItem from="1598506700128" duration="2680000" />
       <workItem from="1598531071187" duration="533000" />
+      <workItem from="1598539213941" duration="11636000" />
     </task>
     <servers />
   </component>
@@ -89,35 +130,60 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
     <state x="750" y="254" width="419" height="606" key="#JSON" timestamp="1598531603238">
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
     <state x="750" y="254" width="419" height="606" key="#JSON/0.27.1920.1053@0.27.1920.1053" timestamp="1598531603238" />
+    <state x="675" y="352" width="559" height="409" key="#Node.js_and_NPM" timestamp="1598539767378">
+      <screen x="0" y="27" width="1920" height="1053" />
+    </state>
+    <state x="675" y="352" width="559" height="409" key="#Node.js_and_NPM/0.27.1920.1053@0.27.1920.1053" timestamp="1598539767378" />
     <state x="555" y="197" width="800" height="719" key="#Plugins" timestamp="1598506540746">
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
     <state x="555" y="197" width="800" height="719" key="#Plugins/0.27.1920.1053@0.27.1920.1053" timestamp="1598506540746" />
-    <state x="418" y="211" width="1084" height="709" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1598506842740">
+    <state x="418" y="211" width="1084" height="734" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1598571426119">
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
-    <state x="418" y="211" width="1084" height="709" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.27.1920.1053@0.27.1920.1053" timestamp="1598506842740" />
-    <state x="777" y="267" width="355" height="580" key="RollbackChangesDialog" timestamp="1598531361059">
+    <state x="418" y="211" width="1084" height="734" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.27.1920.1053@0.27.1920.1053" timestamp="1598571426119" />
+    <state x="182" y="121" width="1536" height="879" key="DiffContextDialog" timestamp="1598540409360">
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
-    <state x="777" y="267" width="355" height="580" key="RollbackChangesDialog/0.27.1920.1053@0.27.1920.1053" timestamp="1598531361059" />
+    <state x="182" y="121" width="1536" height="879" key="DiffContextDialog/0.27.1920.1053@0.27.1920.1053" timestamp="1598540409360" />
+    <state width="1862" height="278" key="GridCell.Tab.0.bottom" timestamp="1598571765463">
+      <screen x="0" y="27" width="1920" height="1053" />
+    </state>
+    <state width="1862" height="278" key="GridCell.Tab.0.bottom/0.27.1920.1053@0.27.1920.1053" timestamp="1598571765463" />
+    <state width="1862" height="278" key="GridCell.Tab.0.center" timestamp="1598571765460">
+      <screen x="0" y="27" width="1920" height="1053" />
+    </state>
+    <state width="1862" height="278" key="GridCell.Tab.0.center/0.27.1920.1053@0.27.1920.1053" timestamp="1598571765460" />
+    <state width="1862" height="278" key="GridCell.Tab.0.left" timestamp="1598571765459">
+      <screen x="0" y="27" width="1920" height="1053" />
+    </state>
+    <state width="1862" height="278" key="GridCell.Tab.0.left/0.27.1920.1053@0.27.1920.1053" timestamp="1598571765459" />
+    <state width="1862" height="278" key="GridCell.Tab.0.right" timestamp="1598571765461">
+      <screen x="0" y="27" width="1920" height="1053" />
+    </state>
+    <state width="1862" height="278" key="GridCell.Tab.0.right/0.27.1920.1053@0.27.1920.1053" timestamp="1598571765461" />
+    <state x="777" y="267" width="355" height="580" key="RollbackChangesDialog" timestamp="1598540411553">
+      <screen x="0" y="27" width="1920" height="1053" />
+    </state>
+    <state x="777" y="267" width="355" height="580" key="RollbackChangesDialog/0.27.1920.1053@0.27.1920.1053" timestamp="1598540411553" />
     <state x="802" y="327" width="306" height="459" key="refactoring.ChangeSignatureDialog" timestamp="1595946301818">
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
     <state x="802" y="327" width="306" height="459" key="refactoring.ChangeSignatureDialog/0.27.1920.1053@0.27.1920.1053" timestamp="1595946301818" />
-    <state x="623" y="261" width="672" height="678" key="search.everywhere.popup" timestamp="1598531036250">
+    <state x="623" y="261" width="672" height="678" key="search.everywhere.popup" timestamp="1598566809421">
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
-    <state x="623" y="261" width="672" height="678" key="search.everywhere.popup/0.27.1920.1053@0.27.1920.1053" timestamp="1598531036250" />
-    <state x="685" y="447" width="540" height="220" key="vcs.readOnlyHandler.ReadOnlyStatusDialog" timestamp="1598531543706">
+    <state x="623" y="261" width="672" height="678" key="search.everywhere.popup/0.27.1920.1053@0.27.1920.1053" timestamp="1598566809421" />
+    <state x="685" y="447" width="540" height="220" key="vcs.readOnlyHandler.ReadOnlyStatusDialog" timestamp="1598571112450">
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
-    <state x="685" y="447" width="540" height="220" key="vcs.readOnlyHandler.ReadOnlyStatusDialog/0.27.1920.1053@0.27.1920.1053" timestamp="1598531543706" />
+    <state x="685" y="447" width="540" height="220" key="vcs.readOnlyHandler.ReadOnlyStatusDialog/0.27.1920.1053@0.27.1920.1053" timestamp="1598571112450" />
   </component>
 </project>

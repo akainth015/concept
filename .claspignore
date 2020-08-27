@@ -1,1 +1,9 @@
+node_modules/**
+src/**
 website/**
+
+.babelrc
+.gitignore
+package.json
+webpack.config.js
+yarn.lock
