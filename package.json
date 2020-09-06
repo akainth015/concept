@@ -6,7 +6,7 @@
     "main": "Concept.js",
     "scripts": {
         "build": "webpack",
-        "start": "concurrently \"webpack --watch\" \"clasp push --watch\""
+        "start": "webpack --mode development --display errors-only --watch"
     },
     "repository": {
         "type": "git",
@@ -24,18 +24,24 @@
     },
     "homepage": "https://github.com/akainth015/concept#readme",
     "dependencies": {
+        "@fluent/bundle": "^0.16.0",
+        "@fluent/langneg": "^0.5.0",
+        "@fluent/react": "^0.13.0",
+        "chart.js": "^2.9.3",
+        "intl-pluralrules": "^1.2.2",
         "react": "^16.13.1",
-        "react-dom": "^16.13.1"
+        "react-dom": "^16.13.1",
+        "shelljs": "^0.8.4"
     },
     "devDependencies": {
         "@babel/core": "^7.11.4",
         "@babel/preset-react": "^7.10.4",
+        "@google/clasp": "^2.3.0",
         "@types/google-apps-script": "^1.0.14",
         "babel-loader": "^8.1.0",
-        "@google/clasp": "^2.3.0",
-        "concurrently": "^5.3.0",
         "css-loader": "^4.2.2",
         "html-webpack-plugin": "^4.3.0",
+        "inquirer": "5.0.0",
         "mini-css-extract-plugin": "^0.11.0",
         "style-loader": "^1.2.1",
         "webpack": "^4.44.1",

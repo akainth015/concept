@@ -27,11 +27,6 @@ function include(filename) {
         .getContent();
 }
 
-// TODO test and see if the natural language api is more accurate with individual paragraphs
-function getAllParagraphs() {
-    return DocumentApp.getActiveDocument().getBody().getParagraphs();
-}
-
 // noinspection JSUnusedGlobalSymbols
 function runAnalysis() {
     const payload = {
@@ -45,7 +40,7 @@ function runAnalysis() {
             extractEntities: true,
             extractDocumentSentiment: true,
             extractEntitySentiment: true,
-            classifyText: true,
+            classifyText: DocumentApp.getActiveDocument().getBody().getText().length >= 20,
         },
         encodingType: "UTF16"
     };
@@ -60,4 +55,18 @@ function runAnalysis() {
     });
     let annotationsText = annotationsResponse.getContentText();
     return JSON.parse(annotationsText);
+}
+
+/**
+ * Sets the user's cursor position to the specified offset relative to the entire document.
+ *
+ * @param offset the offset of the text in the document's body
+ */
+function setSelectionByOffset(offset) {
+    const body = DocumentApp.getActiveDocument().getBody().editAsText();
+    const position = DocumentApp.getActiveDocument().newPosition(
+        body, offset
+    );
+
+    DocumentApp.getActiveDocument().setCursor(position);
 }
