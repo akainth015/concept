@@ -24,7 +24,6 @@ export default function () {
         return (
             <>
                 <DocumentSentiment annotations={annotations}/>
-                <hr/>
                 <SentimentBreakdown annotations={annotations}/>
             </>
         )

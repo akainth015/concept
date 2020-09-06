@@ -14,14 +14,14 @@ export default function ({annotations}) {
             sentenceBySentenceBreakdown.current.width / 2, 0,
             sentenceBySentenceBreakdown.current.width / 2, sentenceBySentenceBreakdown.current.height
         );
-        gradient.addColorStop(0, "#6100caff");
-        gradient.addColorStop(1, '#e000caff');
+        gradient.addColorStop(0, "#1a73e8");
+        gradient.addColorStop(1, '#5791de');
         const bgGradient = ctx.createLinearGradient(
             sentenceBySentenceBreakdown.current.width / 2, 0,
             sentenceBySentenceBreakdown.current.width / 2, sentenceBySentenceBreakdown.current.height
         );
-        bgGradient.addColorStop(0, "#6100caaa");
-        bgGradient.addColorStop(1, '#e000caaa');
+        bgGradient.addColorStop(0, "#1a73e8cc");
+        bgGradient.addColorStop(1, '#5791decc');
 
         const sentenceBySentenceData = {
             labels: sentences.map(sentence => sentence.text.content),
@@ -95,11 +95,21 @@ export default function ({annotations}) {
     return (
         <>
             <h1>Sentiment Breakdown</h1>
+            <p>Positive numbers represent positive emotions like happiness and joy, whereas negative numbers could
+                represent either sadness, jealously, or anger.</p>
             <p>Click on a point to go to that sentence</p>
             <h2>Individual (by sentence)</h2>
             <canvas ref={sentenceBySentenceBreakdown}/>
             <h2>Cumulative (by sentence)</h2>
             <canvas ref={integratedSentiment}/>
+            <h2>Most Emotional Sentences</h2>
+            <ol>
+                {sentences
+                    .slice(0, sentences.length)
+                    .sort((a, b) => b.sentiment.magnitude - a.sentiment.magnitude)
+                    .slice(0, 5)
+                    .map(sentence => <li>{sentence.text.content}</li>)}
+            </ol>
         </>
     )
 }
