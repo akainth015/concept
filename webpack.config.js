@@ -56,7 +56,7 @@ module.exports = {
                         shell.exec(`clasp push`, {
                             silent: true
                         });
-                        console.log(`Pushed to apps script cloud at ${new Date().toLocaleTimeString()}`)
+                        console.log(`Pushed to apps script at ${new Date().toLocaleTimeString()}`);
                     });
                 }
             }

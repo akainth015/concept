@@ -3,6 +3,7 @@ import "./loading.css";
 import "./main.css";
 import DocumentSentiment from "./components/documentSentiment/DocumentOverview";
 import SentimentBreakdown from "./components/sentimentBreakdown/SentimentBreakdown";
+import SyntaxAnalysis from "./components/syntaxAnalysis/SyntaxAnalysis";
 
 export default function () {
     const [annotations, setAnnotations] = useState(null);
@@ -25,6 +26,7 @@ export default function () {
             <>
                 <DocumentSentiment annotations={annotations}/>
                 <SentimentBreakdown annotations={annotations}/>
+                <SyntaxAnalysis annotations={annotations}/>
             </>
         )
     }

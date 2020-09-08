@@ -61,12 +61,12 @@ function runAnalysis() {
  * Sets the user's cursor position to the specified offset relative to the entire document.
  *
  * @param offset the offset of the text in the document's body
+ * @param text the text that will be selected
  */
-function setSelectionByOffset(offset) {
+function setSelectionByOffset(offset, text) {
     const body = DocumentApp.getActiveDocument().getBody().editAsText();
-    const position = DocumentApp.getActiveDocument().newPosition(
-        body, offset
-    );
+    const rangeBuilder = DocumentApp.getActiveDocument().newRange();
+    rangeBuilder.addElement(body, offset, offset + text.length - 1);
 
-    DocumentApp.getActiveDocument().setCursor(position);
+    DocumentApp.getActiveDocument().setSelection(rangeBuilder.build());
 }

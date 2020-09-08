@@ -1,27 +1,18 @@
 import React, {useLayoutEffect, useRef} from "react";
 import Chart from "chart.js";
 import "./sentimentBreakdown.css";
+import {createBackgroundGradient, createStrokeGradient} from "../../colors";
 
 export default function ({annotations}) {
-    const sentenceBySentenceBreakdown = useRef();
-    const integratedSentiment = useRef();
+    const individualBreakdownCanvas = useRef();
+    const cumulativeCanvas = useRef();
 
     const {sentences} = annotations;
 
     useLayoutEffect(function () {
-        const ctx = sentenceBySentenceBreakdown.current.getContext("2d");
-        const gradient = ctx.createLinearGradient(
-            sentenceBySentenceBreakdown.current.width / 2, 0,
-            sentenceBySentenceBreakdown.current.width / 2, sentenceBySentenceBreakdown.current.height
-        );
-        gradient.addColorStop(0, "#1a73e8");
-        gradient.addColorStop(1, '#5791de');
-        const bgGradient = ctx.createLinearGradient(
-            sentenceBySentenceBreakdown.current.width / 2, 0,
-            sentenceBySentenceBreakdown.current.width / 2, sentenceBySentenceBreakdown.current.height
-        );
-        bgGradient.addColorStop(0, "#1a73e8cc");
-        bgGradient.addColorStop(1, '#5791decc');
+        let ctx = individualBreakdownCanvas.current.getContext("2d");
+        let gradient = createStrokeGradient(ctx);
+        let bgGradient = createBackgroundGradient(ctx);
 
         const sentenceBySentenceData = {
             labels: sentences.map(sentence => sentence.text.content),
@@ -37,6 +28,10 @@ export default function ({annotations}) {
             ]
         };
 
+        ctx = cumulativeCanvas.current.getContext("2d");
+        gradient = createStrokeGradient(ctx);
+        bgGradient = createBackgroundGradient(ctx);
+
         const integratedSentimentData = {
             labels: sentences.map(sentence => sentence.text.content),
             datasets: [
@@ -45,7 +40,7 @@ export default function ({annotations}) {
                         return Math.min(acc + cur.sentiment.score * cur.sentiment.magnitude, Math.max(1, acc + 0.1))
                     }, 0)),
                     label: "Integrated Sentiment",
-                    backgroundColor: bgGradient,
+                    backgroundColor: bgGradient, // it is not created for the same canvas context, but it should be ok?
                     borderColor: gradient,
                     pointBorderColor: gradient,
                     pointBackgroundColor: gradient
@@ -61,7 +56,7 @@ export default function ({annotations}) {
                 if (elements.length === 1) {
                     const {_index: index} = elements[0];
                     google.script.run
-                        .setSelectionByOffset(sentences[index].text.beginOffset);
+                        .setSelectionByOffset(sentences[index].text.beginOffset, sentences[index].text.content);
                     google.script.host.editor.focus();
                 }
             },
@@ -81,12 +76,12 @@ export default function ({annotations}) {
             }
         };
 
-        new Chart(sentenceBySentenceBreakdown.current, {
+        new Chart(individualBreakdownCanvas.current, {
             data: sentenceBySentenceData, options,
             type: "line"
         });
 
-        new Chart(integratedSentiment.current, {
+        new Chart(cumulativeCanvas.current, {
             data: integratedSentimentData, options,
             type: "line"
         });
@@ -99,16 +94,16 @@ export default function ({annotations}) {
                 represent either sadness, jealously, or anger.</p>
             <p>Click on a point to go to that sentence</p>
             <h2>Individual (by sentence)</h2>
-            <canvas ref={sentenceBySentenceBreakdown}/>
+            <canvas ref={individualBreakdownCanvas}/>
             <h2>Cumulative (by sentence)</h2>
-            <canvas ref={integratedSentiment}/>
+            <canvas ref={cumulativeCanvas}/>
             <h2>Most Emotional Sentences</h2>
             <ol>
                 {sentences
                     .slice(0, sentences.length)
                     .sort((a, b) => b.sentiment.magnitude - a.sentiment.magnitude)
                     .slice(0, 5)
-                    .map(sentence => <li>{sentence.text.content}</li>)}
+                    .map((sentence, i) => <li key={i}>{sentence.text.content}</li>)}
             </ol>
         </>
     )
