@@ -11,16 +11,15 @@ export default function () {
 
     useEffect(() => {
         let successHandler = async function ([payload, headers]) {
-            try {
-                const response = await fetch("https://language.googleapis.com/v1/documents:annotateText", {
-                    method: "POST",
-                    body: JSON.stringify(payload),
-                    headers: headers,
-                });
-                setAnnotations(await response.json());
-            } catch (e) {
-                setError(e);
+            const response = await fetch("https://language.googleapis.com/v1/documents:annotateText", {
+                method: "POST",
+                body: JSON.stringify(payload),
+                headers: headers,
+            });
+            if (response.status !== 200) {
+                setError(response.text());
             }
+            setAnnotations(await response.json());
         };
 
         google.script.run
