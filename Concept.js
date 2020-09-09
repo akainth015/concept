@@ -28,7 +28,7 @@ function include(filename) {
 }
 
 // noinspection JSUnusedGlobalSymbols
-function runAnalysis() {
+function createAnnotationRequest() {
     const payload = {
         document: {
             type: "PLAIN_TEXT",
@@ -45,16 +45,10 @@ function runAnalysis() {
         encodingType: "UTF16"
     };
 
-    const annotationsResponse = UrlFetchApp.fetch("https://language.googleapis.com/v1/documents:annotateText", {
-        method: "post",
-        contentType: "application/json",
-        payload: JSON.stringify(payload),
-        headers: {
-            "Authorization": `Bearer ${ScriptApp.getOAuthToken()}`
-        }
-    });
-    let annotationsText = annotationsResponse.getContentText();
-    return JSON.parse(annotationsText);
+    return [payload, {
+        "Authorization": `Bearer ${ScriptApp.getOAuthToken()}`,
+        "Content-Type": "application/json"
+    }];
 }
 
 /**
