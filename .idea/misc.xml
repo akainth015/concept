@@ -3,4 +3,7 @@
   <component name="JavaScriptSettings">
     <option name="languageLevel" value="JSX" />
   </component>
+  <component name="ProjectResources">
+    <resource url="https://fonts.googleapis.com/css2?family=Lato&amp;family=Montserrat:wght@700&amp;display=swap" location="$PROJECT_DIR$" />
+  </component>
 </project>
